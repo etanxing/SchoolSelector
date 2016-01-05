@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "schoolSelector",
+    "style": "sass",
+    "postcss": true
+  }
+}

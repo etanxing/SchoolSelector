@@ -1,0 +1,13 @@
+[{
+  "enabled": true,
+  "type": "input",
+  "field": "school_name",
+  "isMatch": true,
+  "rules": [{
+    "type": "match",
+    "position": "any"
+  }],
+  "props": {
+    "label": "School name"
+  }
+}]
