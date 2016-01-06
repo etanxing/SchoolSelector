@@ -8,6 +8,149 @@
     "position": "any"
   }],
   "props": {
-    "label": "School name"
+    "label": "School name",
+    "id": "school-name"
+  }
+},{
+  "enabled": true,
+  "type": "input",
+  "field": "ICSEA",
+  "isCompare": true,
+  "rules": [{
+    "type": "compare",
+    "operator": ">="
+  }],
+  "props": {
+    "label": "ICSEA",
+    "id": "icsea"
+  }
+},{
+  "enabled": true,
+  "type": "input",
+  "field": "average_total_primary",
+  "isCompare": true,
+  "rules": [{
+    "type": "compare",
+    "operator": ">="
+  }],
+  "props": {
+    "label": "Average total",
+    "id": "average-total-primary"
+  }
+},{
+  "enabled": true,
+  "type": "input",
+  "field": "average_writing_primary",
+  "isCompare": true,
+  "rules": [{
+    "type": "compare",
+    "operator": ">="
+  }],
+  "props": {
+    "label": "Average writing",
+    "id": "average-writing-primary"
+  }
+},{
+  "enabled": true,
+  "type": "input",
+  "field": "average_read_primary",
+  "isCompare": true,
+  "rules": [{
+    "type": "compare",
+    "operator": ">="
+  }],
+  "props": {
+    "label": "Average read",
+    "id": "average-read-primary"
+  }
+},{
+  "enabled": true,
+  "type": "input",
+  "field": "average_spell_primary",
+  "isCompare": true,
+  "rules": [{
+    "type": "compare",
+    "operator": ">="
+  }],
+  "props": {
+    "label": "Average spell",
+    "id": "average-spell-primary"
+  }
+},{
+  "enabled": true,
+  "type": "input",
+  "field": "average_gp_primary",
+  "isCompare": true,
+  "rules": [{
+    "type": "compare",
+    "operator": ">="
+  }],
+  "props": {
+    "label": "Average gp",
+    "id": "average-gp-primary"
+  }
+},{
+  "enabled": true,
+  "type": "input",
+  "field": "average_numeracy_primary",
+  "isCompare": true,
+  "rules": [{
+    "type": "compare",
+    "operator": ">="
+  }],
+  "props": {
+    "label": "Average numeracy",
+    "id": "average-numeracy-primary"
+  }
+},{
+  "enabled": true,
+  "type": "dropdown",
+  "field": "location",
+  "props": {
+    "label": "Location",
+    "id": "school-location",
+    "options": ["ACT","QLD","NT","NSW","SA","TAS","VIC","WA"],
+    "addAll": true,
+    "addAllOption": "Australia-wide"
+  }
+},{
+  "enabled": true,
+  "type": "dropdown",
+  "field": "type",
+  "props": {
+    "label": "School type",
+    "id": "school-type",
+    "options": ["Primary","Secondary"]
+  }
+},{
+  "enabled": true,
+  "type": "dropdown",
+  "field": "type",
+  "props": {
+    "label": "Sector",
+    "id": "school-sector",
+    "options": ["Government","Non-Government"],
+    "addAll": true
+  }
+},{
+  "enabled": true,
+  "type": "dropdown",
+  "field": "type",
+  "props": {
+    "label": "Co-ed/Single Sex",
+    "id": "school-edu-type",
+    "options": ["Co-ed","Female","Male"],
+    "addAll": true
+  }
+},{
+  "enabled": true,
+  "type": "dropdown",
+  "field": "type",
+  "props": {
+    "label": "Region",
+    "id": "school-region",
+    "options": ["Metropolitan","Provincial","Remote","Very remote"],
+    "addAll": true
   }
 }]
+
