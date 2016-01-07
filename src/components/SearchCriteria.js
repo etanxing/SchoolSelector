@@ -1,16 +1,18 @@
 import s from 'styles/SearchCriteria.scss';
 import React from 'react';
-import config from './SearchCriteria.json';
+import config from '../config/search_criteria.json';
 import Input from './Input';
 import Dropdown from './Dropdown';
+import Dispatcher from '../Dispatcher';
 
 class SearchCriteria extends React.Component {
   handleChange(e) {
-    // Dispatcher.dispatch({
-    //   actionType: ActionTypes.CHANGE_SELECTED_QUESTION,
-    //   props: props
-    // });
-    console.log(e.target.id, e.target.value);
+    let {id, value} = e.target;
+
+    Dispatcher.dispatch({
+      actionType: 'FILTER_UPDATED',
+      data: {id, value}
+    });
   }
   render() {
     return (

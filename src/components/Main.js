@@ -1,6 +1,7 @@
 import s from 'styles/App.scss';
 import React from 'react';
 import SearchCriteria from './SearchCriteria';
+import SchoolList from './SchoolList';
 
 let yeomanImage = require('../images/yeoman.png');
 
@@ -10,6 +11,7 @@ class AppComponent extends React.Component {
       <div className="index">
         <img src={yeomanImage} alt="Yeoman Generator" />
         <SearchCriteria/>
+        <SchoolList/>
       </div>
     );
   }
