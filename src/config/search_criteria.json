@@ -1,7 +1,7 @@
 [{
   "enabled": true,
   "type": "input",
-  "field": "school_name",
+  "field": "name",
   "isMatch": true,
   "rules": [{
     "type": "match",
@@ -21,6 +21,7 @@
     "operator": ">="
   }],
   "props": {
+    "type": "number",
     "label": "ICSEA",
     "id": "icsea"
   }
@@ -34,6 +35,7 @@
     "operator": ">="
   }],
   "props": {
+    "type": "number",
     "label": "Average total",
     "id": "average-total-primary"
   }
@@ -47,6 +49,7 @@
     "operator": ">="
   }],
   "props": {
+    "type": "number",
     "label": "Average writing",
     "id": "average-writing-primary"
   }
@@ -60,6 +63,7 @@
     "operator": ">="
   }],
   "props": {
+    "type": "number",
     "label": "Average read",
     "id": "average-read-primary"
   }
@@ -73,6 +77,7 @@
     "operator": ">="
   }],
   "props": {
+    "type": "number",
     "label": "Average spell",
     "id": "average-spell-primary"
   }
@@ -86,6 +91,7 @@
     "operator": ">="
   }],
   "props": {
+    "type": "number",
     "label": "Average gp",
     "id": "average-gp-primary"
   }
@@ -99,15 +105,16 @@
     "operator": ">="
   }],
   "props": {
+    "type": "number",
     "label": "Average numeracy",
     "id": "average-numeracy-primary"
   }
 },{
   "enabled": true,
   "type": "dropdown",
-  "field": "location",
+  "field": "state",
   "props": {
-    "label": "Location",
+    "label": "State",
     "id": "school-location",
     "options": ["ACT","QLD","NT","NSW","SA","TAS","VIC","WA"],
     "addAll": true,
@@ -125,7 +132,7 @@
 },{
   "enabled": true,
   "type": "dropdown",
-  "field": "type",
+  "field": "sector",
   "props": {
     "label": "Sector",
     "id": "school-sector",
@@ -135,17 +142,17 @@
 },{
   "enabled": true,
   "type": "dropdown",
-  "field": "type",
+  "field": "sex",
   "props": {
     "label": "Co-ed/Single Sex",
     "id": "school-edu-type",
-    "options": ["Co-ed","Female","Male"],
+    "options": [["Co-ed","C"],["Female","F"],["Male","M"]],
     "addAll": true
   }
 },{
   "enabled": true,
   "type": "dropdown",
-  "field": "type",
+  "field": "location",
   "props": {
     "label": "Region",
     "id": "school-region",

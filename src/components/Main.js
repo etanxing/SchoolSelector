@@ -9,9 +9,9 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
         <SearchCriteria/>
         <SchoolList/>
+        <img src={yeomanImage} alt="Yeoman Generator" />
       </div>
     );
   }

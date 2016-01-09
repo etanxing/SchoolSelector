@@ -6,7 +6,7 @@ class Input extends React.Component {
     return (
       <div className="form-group input">
         <label className="sr-only" htmlFor={this.props.id}>{this.props.label}</label>
-        <input className="form-control" id={this.props.id} placeholder={this.props.label} onChange={this.props.onChange}/>
+        <input className="form-control" id={this.props.id} placeholder={this.props.label} onChange={this.props.onChange} type={this.props.type || 'text'}/>
       </div>
     );
   }

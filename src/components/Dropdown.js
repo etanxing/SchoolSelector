@@ -11,12 +11,17 @@ class Dropdown extends React.Component {
       options.unshift(this.props.addAllOption || 'All');
     }
 
-    console.log(options);
     return (
       <div className="form-group dropdown">
         <label htmlFor={this.props.id}>{this.props.label}</label>
         <select className="form-control" onChange={this.props.onChange} id={this.props.id}>
-          {options.map(o=><option key={o}>{o}</option>)}
+          {options.map(o=>{
+            if (Array.isArray(o)) {
+              return <option key={o} value={o[1]}>{o[0]}</option>
+            } else {
+              return <option key={o}>{o}</option>
+            }
+          })}
         </select>
       </div>
     );

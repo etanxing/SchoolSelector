@@ -7,11 +7,16 @@ function getSchoolList() {
   return Store.getSchoolList();
 }
 
+function getSchoolTypeField() {
+  return Store.getSchoolTypeField();
+}
+
 class SchoolList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: getSchoolList()
+      list: getSchoolList(),
+      schoolTypeField: getSchoolTypeField()
     };
 
     this._onListChange = this._onListChange.bind(this);
@@ -28,14 +33,15 @@ class SchoolList extends React.Component {
   render() {
     return (
       <ul>
-        <li>112</li>
+        {this.state.list.map(e=><li>{e.name} | {e.ICSEA} | {e[this.state.schoolTypeField]}</li>)}
       </ul>
     );
   }
 
   _onListChange() {
     this.setState({
-      list: getSchoolList()
+      list: getSchoolList(),
+      schoolTypeField: getSchoolTypeField()
     });
   }
 }
