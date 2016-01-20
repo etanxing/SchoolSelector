@@ -40,7 +40,7 @@
     "id": "average-total-primary"
   }
 },{
-  "enabled": true,
+  "enabled": false,
   "type": "input",
   "field": "average_writing_primary",
   "isCompare": true,

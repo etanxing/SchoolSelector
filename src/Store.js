@@ -20,6 +20,8 @@ class Filter {
     }
   }
   validate(item) {
+    if (!this._criterion.enabled) return true;
+
     if (this._criterion.type === 'input') {
       return this._validateInput(item);
     } else if (this._criterion.type === 'dropdown') {
@@ -42,7 +44,7 @@ class Filter {
 
     if (this.value !=='' && isCompare) {
       for (let {operator} of rules.filter(byRuletype('compare'))) {
-        if (!eval('item[field]' + operator + 'this.value ')) {
+        if (!eval('(+item[field])' + operator + '(+this.value) ')) {
           return false;
         }
       }
@@ -120,7 +122,7 @@ function byRuletype(type) {
 function updateFilter(data) {
   if (!data) {
     //Init
-    for (let criterion of search_criteria) {
+    for (let criterion of search_criteria.filter(e=>e.enabled)) {
       _searchCriteria.set(criterion.props.id, new Filter(criterion));
     }
   } else {
@@ -153,12 +155,25 @@ function byAverageTtotal() {
   }
 }
 
-function combine(list, ...lists) {
-  if (lists.length > 0) lists.forEach(list=>list.forEach(insert));
-  return list;
+function combine(primary, secondary) {
+  primary.forEach(injectRank('p_'));
+  secondary.forEach(injectRank('s_'));
+  secondary.forEach(insert);
+
+  return primary;
+
   function insert(item) {
-    if (!list.find(it=>it.id === item.id)) {
-      list.push(item);
+    let ps = primary.find(it=>it.id === item.id);
+    if (!ps) {
+      primary.push(item);
+    } else {
+        ps.s_index = item.s_index;
+    }
+  }
+
+  function injectRank(prefix) {
+    return function(item, index) {
+      item[prefix + 'index'] = index + 1;
     }
   }
 }

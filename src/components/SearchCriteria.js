@@ -17,21 +17,28 @@ class SearchCriteria extends React.Component {
   render() {
     return (
       <form className="form-inline searchcriteria">
-        {config.map(this.renderCriterion.bind(this))}
+        <div className="row">
+          {config.map(this.renderCriterion.bind(this))}
+        </div>
       </form>
     );
   }
 
   renderCriterion(item, index) {
+    let component;
     item.props.key = index;
     item.props.onChange = this.handleChange.bind(this);
 
     switch (item.type) {
       case 'input':
-      return <Input {...item.props}/>;
+      component = <Input {...item.props}/>;
+      break;
       case 'dropdown':
-      return <Dropdown {...item.props}/>;
+      component = <Dropdown {...item.props}/>;
+      break;
     }
+
+    return <div className="col-md-3 col-sm-4 col-xs-6">{component}</div>
   }
 }
 

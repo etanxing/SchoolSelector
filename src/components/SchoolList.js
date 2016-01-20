@@ -20,6 +20,7 @@ class SchoolList extends React.Component {
     };
 
     this._onListChange = this._onListChange.bind(this);
+    this.renderItem = this.renderItem.bind(this);
   }
 
   componentDidMount() {
@@ -32,10 +33,36 @@ class SchoolList extends React.Component {
 
   render() {
     return (
-      <ul>
-        {this.state.list.map(e=><li>{e.name} | {e.ICSEA} | {e[this.state.schoolTypeField]}</li>)}
-      </ul>
+      <div className="table-responsive school-list">
+        <table className={'table ' + this.state.schoolTypeField}>
+          <caption>School data from <a href="http://www.theaustralian.com.au/national-affairs/in-depth/schools/interactive#browse">The Australian</a></caption>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Rank</th>
+              <th>Schoo Name</th>
+              <th>ICSEA</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+          {this.state.list.map(this.renderItem)}
+          </tbody>
+        </table>
+      </div>
     );
+  }
+
+  renderItem(e) {
+    return (
+        <tr>
+          <th scope="row">{e.p_index}</th>
+          <th scope="row">{e.s_index}</th>
+          <td>{e.name}</td>
+          <td>{e.ICSEA}</td>
+          <td>{e[this.state.schoolTypeField]}</td>
+        </tr>
+      )
   }
 
   _onListChange() {

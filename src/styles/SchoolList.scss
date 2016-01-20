@@ -1,0 +1,13 @@
+.school-list {
+    .average_total_primary {
+        tr th:nth-child(2) {
+            display: none;
+        }
+    }
+
+    .average_total {
+        tr th:nth-child(1) {
+            display: none;
+        }
+    }
+}
