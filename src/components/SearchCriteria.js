@@ -18,7 +18,7 @@ class SearchCriteria extends React.Component {
     return (
       <form className="form-inline searchcriteria">
         <div className="row">
-          {config.map(this.renderCriterion.bind(this))}
+          {config.filter(e=>e.enabled).map(this.renderCriterion.bind(this))}
         </div>
       </form>
     );

@@ -56,11 +56,23 @@ class Filter {
   _validateDropdown(item) {
     let match = item[this._criterion.field].toLowerCase() === this.value.toLowerCase();
 
-    if (match) return true;
+    if (match) {
+      if (this._criterion.props.id === 'school-type') {
+        console.log(item[this._criterion.field].toLowerCase());
+        if (item[this._criterion.field].toLowerCase() === 'primary' && item.p_index && item.p_index > 0) return true;
+        if (item[this._criterion.field].toLowerCase() === 'secondary' && item.s_index && item.s_index > 0) return true;
+        return false;
+      } else {
+        return true;
+      }
+    }
 
     if (this.value === 'All' || this.value === this._criterion.props.addAllOption) return true;
 
-    if (this._criterion.props.id === 'school-type' && item[this._criterion.field].toLowerCase() === 'combined') return true;
+    if (this._criterion.props.id === 'school-type' && item[this._criterion.field].toLowerCase() === 'combined') {
+      if (this.value.toLowerCase() === 'primary' && item.p_index && item.p_index > 0) return true;
+      if (this.value.toLowerCase() === 'secondary' && item.s_index && item.s_index > 0) return true;
+    }
 
     if (this._criterion.props.id === 'school-location') return true;
 
@@ -71,12 +83,19 @@ class Filter {
 updateFilter();
 
 _schoolList = {
-  SA_Schools: combine(require('../data/sa_primary.json').items, require('../data/sa_secondary.json').items)
+  SA_Schools: require('../data/sa_schools.json'),
+  NSW_Schools: require('../data/nsw_schools.json'),
+  ACT_Schools: require('../data/act_schools.json'),
+  VIC_Schools: require('../data/vic_schools.json'),
+  QLD_Schools: require('../data/qld_schools.json'),
+  NT_Schools: require('../data/nt_schools.json'),
+  TAS_Schools: require('../data/tas_schools.json'),
+  WA_Schools: require('../data/wa_schools.json')
 };
 
 let AppStore = Object.assign({}, EventEmitter.prototype, {
   getSchoolList: function() {
-    return _schoolList.SA_Schools.filter(bySearchCriteria).sort(byAverageTtotal());
+    return _schoolList[_searchCriteria.get('school-location').value + '_Schools'].filter(bySearchCriteria).sort(byAverageTtotal());
   },
 
   getSchoolTypeField: function() {
@@ -152,28 +171,5 @@ function byAverageTtotal() {
     }
     // a must be equal to b
     return 0;
-  }
-}
-
-function combine(primary, secondary) {
-  primary.forEach(injectRank('p_'));
-  secondary.forEach(injectRank('s_'));
-  secondary.forEach(insert);
-
-  return primary;
-
-  function insert(item) {
-    let ps = primary.find(it=>it.id === item.id);
-    if (!ps) {
-      primary.push(item);
-    } else {
-        ps.s_index = item.s_index;
-    }
-  }
-
-  function injectRank(prefix) {
-    return function(item, index) {
-      item[prefix + 'index'] = index + 1;
-    }
   }
 }

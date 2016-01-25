@@ -34,21 +34,23 @@ class SchoolList extends React.Component {
   render() {
     return (
       <div className="table-responsive school-list">
-        <table className={'table ' + this.state.schoolTypeField}>
-          <caption>School data from <a href="http://www.theaustralian.com.au/national-affairs/in-depth/schools/interactive#browse">The Australian</a></caption>
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Rank</th>
-              <th>Schoo Name</th>
-              <th>ICSEA</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-          {this.state.list.map(this.renderItem)}
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table className={'table table-striped table-condensed ' + this.state.schoolTypeField}>
+            <caption>School data from <a href="http://www.theaustralian.com.au/national-affairs/in-depth/schools/interactive#browse">The Australian</a></caption>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Rank</th>
+                <th>Schoo Name</th>
+                <th>ICSEA</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+            {this.state.list.map(this.renderItem)}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

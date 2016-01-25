@@ -1,15 +1,40 @@
 [{
   "enabled": true,
-  "type": "input",
-  "field": "name",
-  "isMatch": true,
-  "rules": [{
-    "type": "match",
-    "position": "any"
-  }],
+  "type": "dropdown",
+  "field": "state",
   "props": {
-    "label": "School name",
-    "id": "school-name"
+    "label": "State",
+    "id": "school-location",
+    "options": ["ACT","QLD","NT","NSW","SA","TAS","VIC","WA"]
+  }
+},{
+  "enabled": true,
+  "type": "dropdown",
+  "field": "sector",
+  "props": {
+    "label": "Sector",
+    "id": "school-sector",
+    "options": ["Government","Non-Government"],
+    "addAll": true
+  }
+},{
+  "enabled": true,
+  "type": "dropdown",
+  "field": "type",
+  "props": {
+    "label": "School type",
+    "id": "school-type",
+    "options": ["Primary","Secondary"]
+  }
+},{
+  "enabled": true,
+  "type": "dropdown",
+  "field": "sex",
+  "props": {
+    "label": "Co-ed/Single Sex",
+    "id": "school-edu-type",
+    "options": [["Co-ed","C"],["Female","F"],["Male","M"]],
+    "addAll": true
   }
 },{
   "enabled": true,
@@ -36,7 +61,7 @@
   }],
   "props": {
     "type": "number",
-    "label": "Average total",
+    "label": "Score",
     "id": "average-total-primary"
   }
 },{
@@ -54,7 +79,7 @@
     "id": "average-writing-primary"
   }
 },{
-  "enabled": true,
+  "enabled": false,
   "type": "input",
   "field": "average_read_primary",
   "isCompare": true,
@@ -68,7 +93,7 @@
     "id": "average-read-primary"
   }
 },{
-  "enabled": true,
+  "enabled": false,
   "type": "input",
   "field": "average_spell_primary",
   "isCompare": true,
@@ -82,7 +107,7 @@
     "id": "average-spell-primary"
   }
 },{
-  "enabled": true,
+  "enabled": false,
   "type": "input",
   "field": "average_gp_primary",
   "isCompare": true,
@@ -96,7 +121,7 @@
     "id": "average-gp-primary"
   }
 },{
-  "enabled": true,
+  "enabled": false,
   "type": "input",
   "field": "average_numeracy_primary",
   "isCompare": true,
@@ -112,52 +137,25 @@
 },{
   "enabled": true,
   "type": "dropdown",
-  "field": "state",
-  "props": {
-    "label": "State",
-    "id": "school-location",
-    "options": ["ACT","QLD","NT","NSW","SA","TAS","VIC","WA"],
-    "addAll": true,
-    "addAllOption": "Australia-wide"
-  }
-},{
-  "enabled": true,
-  "type": "dropdown",
-  "field": "type",
-  "props": {
-    "label": "School type",
-    "id": "school-type",
-    "options": ["Primary","Secondary"]
-  }
-},{
-  "enabled": true,
-  "type": "dropdown",
-  "field": "sector",
-  "props": {
-    "label": "Sector",
-    "id": "school-sector",
-    "options": ["Government","Non-Government"],
-    "addAll": true
-  }
-},{
-  "enabled": true,
-  "type": "dropdown",
-  "field": "sex",
-  "props": {
-    "label": "Co-ed/Single Sex",
-    "id": "school-edu-type",
-    "options": [["Co-ed","C"],["Female","F"],["Male","M"]],
-    "addAll": true
-  }
-},{
-  "enabled": true,
-  "type": "dropdown",
   "field": "location",
   "props": {
     "label": "Region",
     "id": "school-region",
     "options": ["Metropolitan","Provincial","Remote","Very remote"],
     "addAll": true
+  }
+},{
+  "enabled": true,
+  "type": "input",
+  "field": "name",
+  "isMatch": true,
+  "rules": [{
+    "type": "match",
+    "position": "any"
+  }],
+  "props": {
+    "label": "School name",
+    "id": "school-name"
   }
 }]
 

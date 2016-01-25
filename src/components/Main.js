@@ -11,7 +11,9 @@ class AppComponent extends React.Component {
       <div className="container">
         <SearchCriteria/>
         <SchoolList/>
-        <img src={yeomanImage} alt="Yeoman Generator" />
+        <footer>
+          <a href="mailto:william@workswell.com.au?subject=SchoolSelector">About us</a>
+        </footer>
       </div>
     );
   }
