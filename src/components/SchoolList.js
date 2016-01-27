@@ -33,9 +33,8 @@ class SchoolList extends React.Component {
 
   render() {
     return (
-      <div className="table-responsive school-list">
-        <div class="table-responsive">
-          <table className={'table table-striped table-condensed ' + this.state.schoolTypeField}>
+      <div className="school-list">
+          <table className={'pure-table ' + this.state.schoolTypeField}>
             <caption>School data from <a href="http://www.theaustralian.com.au/national-affairs/in-depth/schools/interactive#browse">The Australian</a></caption>
             <thead>
               <tr>
@@ -50,16 +49,15 @@ class SchoolList extends React.Component {
             {this.state.list.map(this.renderItem)}
             </tbody>
           </table>
-        </div>
       </div>
     );
   }
 
   renderItem(e) {
     return (
-        <tr>
-          <th scope="row">{e.p_index}</th>
-          <th scope="row">{e.s_index}</th>
+        <tr data-p-index={e.p_index} data-s-index={e.s_index}>
+          <td>{e.p_index}</td>
+          <td>{e.s_index}</td>
           <td>{e.name}</td>
           <td>{e.ICSEA}</td>
           <td>{e[this.state.schoolTypeField]}</td>

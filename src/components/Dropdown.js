@@ -12,9 +12,9 @@ class Dropdown extends React.Component {
     }
 
     return (
-      <div className="form-group dropdown">
+      <div className="dropdown">
         <label htmlFor={this.props.id}>{this.props.label}</label>
-        <select className="form-control" onChange={this.props.onChange} id={this.props.id}>
+        <select className="pure-u-23-24" onChange={this.props.onChange} id={this.props.id}>
           {options.map(o=>{
             if (Array.isArray(o)) {
               return <option key={o} value={o[1]}>{o[0]}</option>

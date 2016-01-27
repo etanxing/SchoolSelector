@@ -1,9 +1,13 @@
 import { EventEmitter } from 'events';
 import Dispatcher from './Dispatcher';
-import search_criteria from './config/search_criteria.json';
 
-let _schoolList,
-  _searchCriteria = new Map();
+let search_criteria = require('./config/search_criteria.json');
+let search_criteria_menu = require('./config/search_criteria_menu.json');
+
+let _schoolList;
+let _searchCriteria = new Map();
+
+search_criteria = search_criteria.concat(search_criteria_menu);
 
 class Filter {
   constructor(criterion) {
@@ -58,7 +62,6 @@ class Filter {
 
     if (match) {
       if (this._criterion.props.id === 'school-type') {
-        console.log(item[this._criterion.field].toLowerCase());
         if (item[this._criterion.field].toLowerCase() === 'primary' && item.p_index && item.p_index > 0) return true;
         if (item[this._criterion.field].toLowerCase() === 'secondary' && item.s_index && item.s_index > 0) return true;
         return false;

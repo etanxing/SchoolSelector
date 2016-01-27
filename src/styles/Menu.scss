@@ -1,0 +1,27 @@
+.menu {
+  margin-left: -150px;
+  width: 150px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: #191818;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  ul {
+    padding-left: 5px;
+    label {
+      color: #fff;
+    }
+  }
+  li {
+    padding: 10px 0;
+  }
+}
+
+@media (min-width: 48em) {
+  .menu {
+    left: 150px;
+  }
+}

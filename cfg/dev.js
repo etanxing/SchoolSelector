@@ -11,8 +11,8 @@ let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 let config = _.merge({
   entry: [
-    'webpack-dev-server/client?http://127.0.0.1:8000',
-    'webpack/hot/only-dev-server',
+    'webpack-dev-server/client?http://localhost:8000',
+    'webpack/hot/dev-server',
     './src/index'
   ],
   cache: true,

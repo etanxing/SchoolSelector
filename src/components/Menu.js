@@ -1,11 +1,11 @@
-import s from 'styles/SearchCriteria.scss';
+import s from 'styles/Menu.scss';
 import React from 'react';
-import config from '../config/search_criteria.json';
+import config from '../config/search_criteria_menu.json';
 import Input from './Input';
 import Dropdown from './Dropdown';
 import Dispatcher from '../Dispatcher';
 
-class SearchCriteria extends React.Component {
+class Menu extends React.Component {
   handleChange(e) {
     let {id, value} = e.target;
 
@@ -16,11 +16,14 @@ class SearchCriteria extends React.Component {
   }
   render() {
     return (
-      <form className="pure-form pure-form-stacked search-criteria">
-        <div className="pure-g">
-          {config.filter(e=>e.enabled).map(this.renderCriterion.bind(this))}
+        <div className="menu">
+          <div className="pure-menu">
+            <span className="pure-menu-heading">Filters</span>
+            <ul className="pure-menu-list pure-form">
+              {config.filter(e=>e.enabled).map(this.renderCriterion.bind(this))}
+            </ul>
+          </div>
         </div>
-      </form>
     );
   }
 
@@ -38,14 +41,14 @@ class SearchCriteria extends React.Component {
       break;
     }
 
-    return <div className="pure-u-1-2 pure-u-sm-1-4">{component}</div>
+    return <li className="pure-menu-item">{component}</li>
   }
 }
 
-SearchCriteria.displayName = 'SearchCriteria';
+Menu.displayName = 'Menu';
 
 // Uncomment properties you need
-// SearchCriteria.propTypes = {};
-// SearchCriteria.defaultProps = {};
+// Menu.propTypes = {};
+// Menu.defaultProps = {};
 
-export default SearchCriteria;
+export default Menu;
