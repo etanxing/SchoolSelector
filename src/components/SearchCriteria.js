@@ -35,7 +35,7 @@ class SearchCriteria extends React.Component {
       break;
     }
 
-    return <div className="mdl-cell mdl-cell--3-col mdl-cell--6-col-phone mdl-cell--3-col-tablet" key={index}>{component}</div>
+    return <div className="mdl-cell mdl-cell--3-col mdl-cell--2-col-phone mdl-cell--3-col-tablet" key={index}>{component}</div>
   }
 }
 

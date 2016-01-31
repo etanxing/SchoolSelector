@@ -1,5 +1,6 @@
 import React from 'react';
-import Menu from './Menu';
+import { IconButton, Menu, MenuItem } from 'react-mdl';
+import LeftSearchCriteria from './Menu';
 import SearchCriteria from './SearchCriteria';
 import SchoolList from './SchoolList';
 import launch_page_style from 'styles/Launch-page.scss';
@@ -29,16 +30,19 @@ class AppComponent extends React.Component {
           <div className="mdl-layout__header-row">
             <span className="mdl-layout-title">School Selector</span>
             <div className="mdl-layout-spacer"></div>
-            <nav className="mdl-navigation mdl-layout--large-screen-only">
-              <a className="mdl-navigation__link" href="">Get started</a>
-              <a className="mdl-navigation__link" href="">About us</a>
-            </nav>
+            <div style={{position: 'relative'}}>
+              <IconButton name="more_vert" id="demo-menu-lower-right" />
+              <Menu target="demo-menu-lower-right" align="right">
+                <MenuItem>FAQ</MenuItem>
+                <MenuItem>About us</MenuItem>
+              </Menu>
+            </div>
           </div>
         </header>
         <div className="mdl-layout__drawer">
           <span className="mdl-layout-title">Filters</span>
           <nav className="mdl-navigation">
-            <Menu/>
+            <LeftSearchCriteria/>
           </nav>
         </div>
         <main className="mdl-layout__content">

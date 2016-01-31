@@ -1,6 +1,41 @@
 .school-list {
+  margin-left: 10px;
+  table {
+    position: relative;
+    border: 1px solid rgba(0,0,0,.12);
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: 13px;
+    background-color: #fff;
+    text-align: left;
+    width: 100%;
+  }
+
+  thead {
+    padding-bottom: 3px;
+  }
   caption {
     text-align: center;
+  }
+
+  th {
+    position: relative;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0;
+    height: 48px;
+    font-size: 12px;
+    color: rgba(0,0,0,.54);
+    padding-bottom: 8px;
+    box-sizing: border-box;
+    padding: 0 18px;
+  }
+
+  tr {
+    position: relative;
+    height: 48px;
   }
   .average_total_primary {
     tr td:nth-child(2),
@@ -15,10 +50,112 @@
     }
   }
 
-  table {
-    width: 100%;
-  }
   td {
     text-align: left;
+    position: relative;
+    vertical-align: top;
+    height: 48px;
+    border-top: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    padding: 12px 18px 0;
+    box-sizing: border-box;
+  }
+  tr:nth-child(2n) {
+    background-color: #f2f2f2;
+  }
+  /*
+    Max width before this PARTICULAR table gets nasty
+    This query will take effect for any screen smaller than 760px
+    and also iPads specifically.
+    */
+  @media only screen and (max-width: 480px) {
+    margin-left: 0;
+    table {
+      border: none;
+    }
+    /* Force table to not be like tables anymore */
+    table,
+    caption,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    tr {
+      border: 1px solid #ccc;
+      position: relative;
+      height: 90px;
+      &:not(:first-child) {
+        border-top: none;
+      }
+      &:after {
+        position: absolute;
+        right: 5px;
+        bottom: 0;
+        font-style: italic;
+        font-size: 2em;
+      }
+      td:nth-child(2),
+      th:nth-child(2),
+      td:nth-child(1),
+      th:nth-child(1) {
+        display: none;
+      }
+    }
+
+    .average_total_primary {
+      tr:after {
+        content: attr(data-p-index);
+      }
+    }
+    .average_total {
+      tr:after {
+        content: attr(data-s-index);
+      }
+    }
+
+    td {
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      padding: 3px 18px 3px 35%;
+      height: 30px;
+    }
+    td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 6px;
+      left: 6px;
+      width: 30%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+    /*
+    Label the data
+    */
+    td:nth-of-type(1):before {
+      content: "Rank";
+    }
+    td:nth-of-type(2):before {
+      content: "Rank";
+    }
+    td:nth-of-type(3):before {
+      content: "School name";
+    }
+    td:nth-of-type(4):before {
+      content: "ICSEA";
+    }
+    td:nth-of-type(5):before {
+      content: "Score";
+    }
   }
 }

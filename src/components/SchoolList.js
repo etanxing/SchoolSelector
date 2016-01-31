@@ -34,13 +34,13 @@ class SchoolList extends React.Component {
   render() {
     return (
       <div className="school-list">
-          <table className={'mdl-data-table mdl-js-data-table ' + this.state.schoolTypeField}>
+          <table className={this.state.schoolTypeField}>
             <caption>School data from <a href="http://www.theaustralian.com.au/national-affairs/in-depth/schools/interactive#browse">The Australian</a></caption>
             <thead>
               <tr>
                 <th>Rank</th>
                 <th>Rank</th>
-                <th className="mdl-data-table__cell--non-numeric">Schoo Name</th>
+                <th>Schoo Name</th>
                 <th>ICSEA</th>
                 <th>Score</th>
               </tr>
@@ -58,7 +58,7 @@ class SchoolList extends React.Component {
         <tr data-p-index={e.p_index} data-s-index={e.s_index} key={e.id}>
           <td>{e.p_index}</td>
           <td>{e.s_index}</td>
-          <td className="mdl-data-table__cell--non-numeric">{e.name}</td>
+          <td>{e.name}</td>
           <td>{e.ICSEA}</td>
           <td>{e[this.state.schoolTypeField]}</td>
         </tr>
