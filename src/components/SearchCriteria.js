@@ -16,17 +16,14 @@ class SearchCriteria extends React.Component {
   }
   render() {
     return (
-      <form className="pure-form pure-form-stacked search-criteria">
-        <div className="pure-g">
-          {config.filter(e=>e.enabled).map(this.renderCriterion.bind(this))}
-        </div>
-      </form>
+     <div className="mdl-grid search-criteria">
+        {config.filter(e=>e.enabled).map(this.renderCriterion.bind(this))}
+      </div>
     );
   }
 
   renderCriterion(item, index) {
     let component;
-    item.props.key = index;
     item.props.onChange = this.handleChange.bind(this);
 
     switch (item.type) {
@@ -38,7 +35,7 @@ class SearchCriteria extends React.Component {
       break;
     }
 
-    return <div className="pure-u-1-2 pure-u-sm-1-4">{component}</div>
+    return <div className="mdl-cell mdl-cell--3-col mdl-cell--6-col-phone mdl-cell--3-col-tablet" key={index}>{component}</div>
   }
 }
 

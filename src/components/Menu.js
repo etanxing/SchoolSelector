@@ -16,20 +16,14 @@ class Menu extends React.Component {
   }
   render() {
     return (
-        <div className="menu">
-          <div className="pure-menu">
-            <span className="pure-menu-heading">Filters</span>
-            <ul className="pure-menu-list pure-form">
-              {config.filter(e=>e.enabled).map(this.renderCriterion.bind(this))}
-            </ul>
-          </div>
+        <div className="mdl-grid">
+          {config.filter(e=>e.enabled).map(this.renderCriterion.bind(this))}
         </div>
     );
   }
 
   renderCriterion(item, index) {
     let component;
-    item.props.key = index;
     item.props.onChange = this.handleChange.bind(this);
 
     switch (item.type) {
@@ -41,7 +35,7 @@ class Menu extends React.Component {
       break;
     }
 
-    return <li className="pure-menu-item">{component}</li>
+    return <div className="mdl-cell mdl-cell--12-col" key={index}>{component}</div>
   }
 }
 

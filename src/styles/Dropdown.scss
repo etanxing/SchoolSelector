@@ -1,1 +1,45 @@
+.dropdown {
+    position: relative;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px 0;
 
+    label {
+        color: rgb(63,81,181);
+        font-size: 12px;
+        top: 4px;
+        visibility: visible;
+
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: left;
+    }
+    select {
+        position: relative;
+        -webkit-appearance: button;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 4px 0;
+        background: white;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0, 0.12);
+        border-radius: 0;
+        font-size: 16px;
+        font-weight: normal;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
+    }
+}

@@ -1,14 +1,30 @@
+import Textfield from 'react-mdl/lib/Textfield';
 import s from 'styles/Input.scss';
 import React from 'react';
 
 class Input extends React.Component {
   render() {
-    return (
-      <div className="input">
-        <label htmlFor={this.props.id}>{this.props.label}</label>
-        <input className="form-control" id={this.props.id} placeholder={this.props.placeholder || this.props.label} onChange={this.props.onChange} type={this.props.type || 'text'} className="pure-u-23-24"/>
-      </div>
-    );
+    let isNumber = this.props.type === 'number',
+      textfield;
+
+    if (isNumber) {
+      textfield = <Textfield
+        pattern='-?[0-9]*(\.[0-9]+)?'
+        error="Please type a number"
+        onChange={this.props.onChange}
+        label={this.props.label}
+        id={this.props.id}
+        floatingLabel
+      />
+    } else {
+      textfield = <Textfield
+        onChange={this.props.onChange}
+        label={this.props.label}
+        id={this.props.id}
+        floatingLabel
+      />
+    }
+    return textfield;
   }
 }
 

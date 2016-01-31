@@ -12,9 +12,8 @@ class Dropdown extends React.Component {
     }
 
     return (
-      <div className="dropdown">
-        <label htmlFor={this.props.id}>{this.props.label}</label>
-        <select className="pure-u-23-24" onChange={this.props.onChange} id={this.props.id}>
+      <div className="mdl-selectfield mdl-js-selectfield dropdown">
+        <select className="mdl-selectfield__select" onChange={this.props.onChange} id={this.props.id} name="{this.props.label}">
           {options.map(o=>{
             if (Array.isArray(o)) {
               return <option key={o} value={o[1]}>{o[0]}</option>
@@ -23,6 +22,7 @@ class Dropdown extends React.Component {
             }
           })}
         </select>
+        <label className="mdl-selectfield__label" htmlFor="{this.props.label}">{this.props.label}</label>
       </div>
     );
   }
